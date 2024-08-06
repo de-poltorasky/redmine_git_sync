@@ -1,0 +1,24 @@
+<h1>Synchronize Git Repositories</h1>
+<%= form_tag sync_project_git_sync_index_path(@project), method: :post do %>
+  <div class="box">
+    <p>
+      <%= label_tag :source_repo, 'Source Repository:' %><br>
+      <%= text_field_tag :source_repo %>
+    </p>
+    <p>
+      <%= label_tag :target_repo, 'Target Repository:' %><br>
+      <%= text_field_tag :target_repo %>
+    </p>
+    <p>
+      <%= label_tag :api_key, 'API Key:' %><br>
+      <%= text_field_tag :api_key %>
+    </p>
+    <p>
+      <%= label_tag :project_name, 'Project Name:' %><br>
+      <%= text_field_tag :project_name %>
+    </p>
+    <p>
+      <%= submit_tag 'Sync', class: 'button' %>
+    </p>
+  </div>
+<% end %>
