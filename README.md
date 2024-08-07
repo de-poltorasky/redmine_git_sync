@@ -13,7 +13,7 @@ This Redmine plugin enables synchronization of Git repositories with Redmine pro
 1. **Clone the repository**:
    ```sh
    cd /path/to/redmine/plugins
-   git clone https://github.com/yourusername/redmine_git_sync.git
+   git clone https://github.com/de-poltorasky/redmine_git_sync.git
    bundle install
    bundle exec rake redmine:plugins:migrate RAILS_ENV=production
    sudo systemctl restart redmine
