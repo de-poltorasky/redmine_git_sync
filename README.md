@@ -10,29 +10,28 @@ Le plugin **Redmine Git Sync** permet de synchroniser des répertoires Git en ut
    ```sh
    cd redmine/plugins
    git clone https://github.com/de-poltorasky/redmine_git_sync.git
-``
 
 2. Redémarrez votre serveur Redmine pour que le plugin soit pris en compte.
 
-##Configuration
+## Configuration
 Accédez à l'administration de Redmine et activez les permissions pour les rôles appropriés :
 View Git Sync : Pour afficher l'onglet Git Sync dans les projets.
 Sync Git Repositories : Pour synchroniser les répertoires Git.
 
-##Utilisation
+## Utilisation
 Accédez à un projet dans Redmine.
 
 Cliquez sur l'onglet Git Sync.
 
 Remplissez les champs nécessaires :
 
-. Source Repository : URL du dépôt Git source.
-. Target Repository : URL du dépôt Git cible.
-. API Key : Clé API pour l'authentification.
-. Project Name : Nom du projet pour créer un répertoire dédié.
+- Source Repository : URL du dépôt Git source.
+- Target Repository : URL du dépôt Git cible.
+- API Key : Clé API pour l'authentification.
+- Project Name : Nom du projet pour créer un répertoire dédié.
 
 Cliquez sur Sync pour lancer la synchronisation.
 
 
-##Licence
+## Licence
 Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
