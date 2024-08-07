@@ -6,16 +6,6 @@ class GitSyncController < ApplicationController
     @repositories = Dir.glob(File.join(Rails.root, 'plugins', 'redmine_git_sync', 'repositories', '*')).select { |f| File.directory? f }
   end
 
-  def show
-    @repository = params[:repo]
-    @files = Dir.glob(File.join(@repository, '**', '*')).select { |f| File.file? f }
-  end
-
-  def view_file
-    @file_path = params[:file_path]
-    @file_content = File.read(@file_path)
-  end
-
   def sync
     source_repo = params[:source_repo]
     api_key = params[:api_key]
@@ -42,7 +32,7 @@ class GitSyncController < ApplicationController
     else
       flash[:error] = 'Synchronization failed'
     end
-    redirect_to project_git_sync_index_path(@project.id)
+    redirect_to project_git_sync_index_path(@project)
   end
 
   private
