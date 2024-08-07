@@ -35,8 +35,8 @@
         <% end %>
       </ul>
       <h3>Information to import the project :</h3>
-      <strong>Identifier:</strong> <%= File.basename(repo).split('_').last %><br>
-      <strong>Path with .git:</strong> <%= File.join(repo, '.git/') %>
+      <strong>Identifier:</strong> <%= File.basename(repo).split('/').last %><br>
+      <strong>Path:</strong> <%= File.join(repo, '.git/') %>
     </li>
   <% end %>
 </ul>
