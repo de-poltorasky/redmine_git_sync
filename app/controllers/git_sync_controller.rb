@@ -3,7 +3,7 @@ class GitSyncController < ApplicationController
   before_action :find_project, :authorize
 
   def index
-    @repositories = Dir.glob(File.join(Rails.root, 'plugins', 'redmine_git_sync', 'repositories', '*')).select { |f| File.directory? f }
+    @repositories = Dir.glob(File.join(Rails.root, 'files', 'git_repositories', '*')).select { |f| File.directory? f }
   end
 
   def sync
@@ -11,7 +11,7 @@ class GitSyncController < ApplicationController
     api_key = params[:api_key]
     project_name = params[:project_name]
     skip_ssl_verification = params[:skip_ssl_verification] == '1'
-    project_dir = File.join(Rails.root, 'plugins', 'redmine_git_sync', 'repositories', "#{project_name}_#{@project.id}")
+    project_dir = File.join(Rails.root, 'files', 'git_repositories', "#{project_name}_#{@project.id}")
 
     # Formatted clone URL
     clone_url = "https://#{api_key}@#{source_repo.sub(/^https:\/\//, '')}"
