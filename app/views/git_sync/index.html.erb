@@ -23,9 +23,9 @@
 <ul>
   <% @repositories.each do |repo| %>
     <li>
-      <strong>Information to import the project :</strong>
+      <strong>Information to import the project :</strong><br>
       <strong>Identifier:</strong> <%= File.basename(repo) %><br>
-      <strong>Path:</strong> <%= File.join(repo, '.git/') %>
+      <strong>Path:</strong> <%= File.join(repo, '.git/') %><br>
       <strong>Contents:</strong>
       <ul>
         <% Dir.glob(File.join(repo, '**', '*')).select { |f| File.file?(f) }.each do |file| %>
