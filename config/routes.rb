@@ -3,5 +3,9 @@ resources :projects do
     collection do
       post 'sync'
     end
+    member do
+      get 'show'
+      get 'view_file'
+    end
   end
 end
