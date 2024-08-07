@@ -24,7 +24,7 @@
   <% @repositories.each do |repo| %>
     <li>
       <strong>Information to import the project :</strong>
-      <strong>Identifier:</strong> <%= File.basename(repo).split('/').last %><br>
+      <strong>Identifier:</strong> <%= File.basename(repo) %><br>
       <strong>Path:</strong> <%= File.join(repo, '.git/') %>
       <strong>Contents:</strong>
       <ul>
