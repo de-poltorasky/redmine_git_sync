@@ -27,8 +27,7 @@
 <ul>
   <% @repositories.each do |repo| %>
     <li>
-      <%= link_to File.basename(repo), project_git_sync_show_path(@project, id: @project.id, repo: repo) %>
+      <%= link_to File.basename(repo), show_repo_project_git_sync_path(@project, repo: repo) %>
     </li>
   <% end %>
 </ul>
-
