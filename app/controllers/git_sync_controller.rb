@@ -7,16 +7,17 @@ class GitSyncController < ApplicationController
 
   def sync
     source_repo = params[:source_repo]
-    target_repo = params[:target_repo]
     api_key = params[:api_key]
     project_name = params[:project_name]
-    project_dir = File.join(Rails.root, 'git_repositories', project_name)
+    timestamp = Time.now.strftime('%Y%m%d%H%M%S')
+    project_dir = File.join(Rails.root, 'plugins', 'redmine_git_sync', 'repositories', "#{project_name}_#{timestamp}")
 
     # Create project directory if it doesn't exist
     FileUtils.mkdir_p(project_dir) unless Dir.exists?(project_dir)
 
     # Clone and push using API key
-    if system("git clone https://#{api_key}@#{source_repo} #{project_dir} && cd #{project_dir} && git push --mirror https://#{api_key}@#{target_repo}")
+    clone_url = "https://#{api_key}@#{source_repo}"
+    if system("git clone #{clone_url} #{project_dir} && cd #{project_dir} && git push --mirror .")
       flash[:notice] = 'Synchronization successful'
     else
       flash[:error] = 'Synchronization failed'
