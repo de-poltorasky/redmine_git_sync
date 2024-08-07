@@ -9,7 +9,7 @@ Le plugin **Redmine Git Sync** permet de synchroniser des répertoires Git en ut
 1. Clonez ce dépôt dans le répertoire `plugins` de votre installation Redmine :
    ```sh
    cd redmine/plugins
-   git clone https://github.com/votre-utilisateur/redmine_git_sync.git
+   git clone https://github.com/de-poltorasky/redmine_git_sync.git
 ``
 
 2. Redémarrez votre serveur Redmine pour que le plugin soit pris en compte.
@@ -57,7 +57,3 @@ Poussez votre branche (git push origin feature/new-feature).
 Créez une Pull Request.
 ##Licence
 Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
-
-### Note:
-- Remplacez `https://github.com/votre-utilisateur/redmine_git_sync.git` par l'URL réelle de votre dépôt.
-- Assurez-vous que tous les chemins et fichiers mentionnés dans le README existent bien dans la structure de votre plugin.
