@@ -6,16 +6,31 @@ class GitSyncController < ApplicationController
     @repositories = Dir.glob(File.join(Rails.root, 'plugins', 'redmine_git_sync', 'repositories', '*')).select { |f| File.directory? f }
   end
 
+  def show
+    @repository = params[:repo]
+    @files = Dir.glob(File.join(@repository, '**', '*')).select { |f| File.file? f }
+  end
+
+  def view_file
+    @file_path = params[:file_path]
+    @file_content = File.read(@file_path)
+  end
+
   def sync
     source_repo = params[:source_repo]
     api_key = params[:api_key]
     project_name = params[:project_name]
     skip_ssl_verification = params[:skip_ssl_verification] == '1'
     timestamp = Time.now.strftime('%Y%m%d%H%M%S')
-    project_dir = File.join(Rails.root, 'plugins', 'redmine_git_sync', 'repositories', "#{project_name}_#{timestamp}")
+    project_dir = File.join(Rails.root, 'plugins', 'redmine_git_sync', 'repositories', project_name)
 
-    # Create project directory if it doesn't exist
-    FileUtils.mkdir_p(project_dir) unless Dir.exists?(project_dir)
+    # Delete project directory if it exists
+    if Dir.exists?(project_dir)
+      FileUtils.rm_rf(project_dir)
+    end
+
+    # Create new project directory
+    FileUtils.mkdir_p(project_dir)
 
     # Formatted clone URL
     clone_url = "https://#{api_key}@#{source_repo.sub(/^https:\/\//, '')}"
