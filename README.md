@@ -26,7 +26,6 @@ Cliquez sur l'onglet Git Sync.
 Remplissez les champs nécessaires :
 
 - Source Repository : URL du dépôt Git source.
-- Target Repository : URL du dépôt Git cible.
 - API Key : Clé API pour l'authentification.
 - Project Name : Nom du projet pour créer un répertoire dédié.
 
