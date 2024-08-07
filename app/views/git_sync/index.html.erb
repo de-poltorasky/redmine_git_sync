@@ -27,12 +27,7 @@
 <ul>
   <% @repositories.each do |repo| %>
     <li>
-      <%= File.basename(repo) %>
-      <ul>
-        <% Dir.glob(File.join(repo, '**', '*')).each do |file| %>
-          <li><%= file.gsub(repo + '/', '') %></li>
-        <% end %>
-      </ul>
+      <%= link_to File.basename(repo), show_project_git_sync_path(@project, repo: repo) %>
     </li>
   <% end %>
 </ul>
