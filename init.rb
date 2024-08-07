@@ -1,10 +1,10 @@
 Redmine::Plugin.register :redmine_git_sync do
   name 'Redmine Git Sync plugin'
-  author 'de Poltorasky'
+  author 'Your Name'
   description 'This plugin allows synchronization of Git repositories'
   version '0.0.1'
-  url 'https://github.com/de-poltorasky/redmine_git_syn'
-  author_url 'https://github.com/de-poltorasky'
+  url 'http://example.com/path/to/plugin'
+  author_url 'http://example.com/about'
   
   project_module :git_sync do
     permission :view_git_sync, :git_sync => :index
