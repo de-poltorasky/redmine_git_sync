@@ -9,8 +9,10 @@ class GitSyncController < ApplicationController
   def sync
     source_repo = params[:source_repo]
     api_key = params[:api_key]
-    project_name = params[:project_name]
     skip_ssl_verification = params[:skip_ssl_verification] == '1'
+
+    # Extract project name from the source repository URL
+    project_name = source_repo.split('/').last.sub('.git', '')
     project_dir = File.join(Rails.root, 'files', 'git_repositories', "#{project_name}_#{@project.id}")
 
     # Formatted clone URL
