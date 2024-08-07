@@ -2,8 +2,9 @@
 <ul>
   <% @files.each do |file| %>
     <li>
-      <%= link_to file.gsub(@repository + '/', ''), project_git_sync_view_file_path(@project, id: @project.id, file_path: file) %>
+      <%= link_to file.gsub(@repository + '/', ''), view_file_project_git_sync_path(@project, file_path: file) %>
     </li>
   <% end %>
 </ul>
 <%= link_to 'Back to repositories', project_git_sync_index_path(@project) %>
+
