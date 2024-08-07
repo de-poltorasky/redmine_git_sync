@@ -3,6 +3,7 @@ class GitSyncController < ApplicationController
   before_action :find_project, :authorize
 
   def index
+    @repositories = Dir.glob(File.join(Rails.root, 'plugins', 'redmine_git_sync', 'repositories', '*')).select { |f| File.directory? f }
   end
 
   def sync
@@ -24,12 +25,6 @@ class GitSyncController < ApplicationController
     git_push_cmd = "cd #{project_dir} && git push --mirror ."
 
     if system(git_clone_cmd) && system(git_push_cmd)
-      # Update repository configuration
-      repo = @project.repositories.find_or_initialize_by(url: project_dir)
-      repo.url = project_dir
-      repo.root_url = project_dir
-      repo.save!
-
       flash[:notice] = 'Synchronization successful'
     else
       flash[:error] = 'Synchronization failed'
