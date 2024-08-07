@@ -14,6 +14,10 @@
       <%= text_field_tag :project_name %>
     </p>
     <p>
+      <%= check_box_tag :skip_ssl_verification, '1' %>
+      <%= label_tag :skip_ssl_verification, 'Skip SSL Verification' %>
+    </p>
+    <p>
       <%= submit_tag 'Sync', class: 'button' %>
     </p>
   </div>
