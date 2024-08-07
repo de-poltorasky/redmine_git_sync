@@ -27,7 +27,18 @@
 <ul>
   <% @repositories.each do |repo| %>
     <li>
-      <%= File.basename(repo) %>
+      <strong>Path:</strong> <%= repo %><br>
+      <strong>Contents:</strong>
+      <ul>
+        <% Dir.glob(File.join(repo, '**', '*')).select { |f| File.file?(f) }.each do |file| %>
+          <li><%= file.gsub("#{repo}/", '') %></li>
+        <% end %>
+      </ul>
+      <strong>Information to import the project :</strong>
+      <strong>Identifier:</strong> <%= File.basename(repo).split('_').last %><br>
+      <strong>Project Name:</strong> <%= File.basename(repo).split('_')[0..-2].join('_') %><br>
+      <strong>Path with .git:</strong> <%= File.join(repo, '.git') %>
     </li>
   <% end %>
 </ul>
+
