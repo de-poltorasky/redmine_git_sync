@@ -34,10 +34,9 @@
           <li><%= file.gsub("#{repo}/", '') %></li>
         <% end %>
       </ul>
-      <strong>Information to import the project :</strong>
+      <h3>Information to import the project :</h3>
       <strong>Identifier:</strong> <%= File.basename(repo).split('_').last %><br>
-      <strong>Project Name:</strong> <%= File.basename(repo).split('_')[0..-2].join('_') %><br>
-      <strong>Path with .git:</strong> <%= File.join(repo, '.git') %>
+      <strong>Path with .git:</strong> <%= File.join(repo, '.git/') %>
     </li>
   <% end %>
 </ul>
