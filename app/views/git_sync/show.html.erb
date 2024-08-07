@@ -1,0 +1,9 @@
+<h1>Repository: <%= File.basename(@repository) %></h1>
+<ul>
+  <% @files.each do |file| %>
+    <li>
+      <%= link_to file.gsub(@repository + '/', ''), view_file_project_git_sync_path(@project, file_path: file) %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'Back to repositories', project_git_sync_index_path(@project) %>
