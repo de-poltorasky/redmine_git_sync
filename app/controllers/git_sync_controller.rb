@@ -3,7 +3,8 @@ class GitSyncController < ApplicationController
   before_action :find_project, :authorize
 
   def index
-    @repositories = Dir.glob(File.join(Rails.root, 'files', 'git_repositories', '*')).select { |f| File.directory? f }
+    project_base_dir = File.join(Rails.root, 'files', 'git_repositories', "*", @project.id.to_s)
+    @repositories = Dir.glob(project_base_dir).select { |f| File.directory? f }
   end
 
   def sync
