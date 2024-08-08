@@ -16,7 +16,7 @@ class GitSyncController < ApplicationController
     project_dir = File.join(Rails.root, 'files', 'git_repositories', "#{project_name}_#{@project.id}")
 
     # Formatted clone URL
-    clone_url = "https://#{api_key}@#{source_repo.sub(/^https:\/\//, '')}"
+    clone_url = "https://pat:#{api_key}@#{source_repo.sub(/^https:\/\//, '')}"
 
     if Dir.exists?(project_dir)
       # Update existing repository
