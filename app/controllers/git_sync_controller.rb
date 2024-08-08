@@ -20,7 +20,7 @@ class GitSyncController < ApplicationController
 
     if Dir.exists?(project_dir)
       # Update existing repository
-      git_pull_cmd = "cd #{project_dir} && git pull #{'--config http.sslVerify=false ' if skip_ssl_verification}#{clone_url}"
+      git_pull_cmd = "cd #{project_dir} && git pull #{clone_url}"
       success = system(git_pull_cmd)
     else
       # Clone new repository
