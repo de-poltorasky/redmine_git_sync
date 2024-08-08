@@ -27,11 +27,7 @@
       <strong>Identifier:</strong> <%= File.basename(repo) %><br>
       <strong>Path:</strong> <%= File.join(repo, '.git/') %><br>
       <strong>Contents:</strong>
-      <ul>
-        <% Dir.glob(File.join(repo, '**', '*')).select { |f| File.file?(f) }.each do |file| %>
-          <li><%= file.gsub("#{repo}/", '') %></li>
-        <% end %>
-      </ul>
+      <strong>Number of Files:</strong> <%= Dir.glob(File.join(repo, '**', '*')).select { |f| File.file?(f) }.count %>
     </li>
   <% end %>
 </ul>
