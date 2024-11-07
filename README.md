@@ -45,13 +45,14 @@ Contents: List of files within the repository.
 
 ![image](https://github.com/user-attachments/assets/8a53e21e-2883-44d4-ac81-b1e9f05fb541)
 
-## Git Repository Synchronization Script
-Using the Bash script located in the bash folder, you can automate the synchronization of all branches across multiple Git repositories with their remote sources. By setting up a cron job for this script, each repository will remain up-to-date automatically. The script switches to each branch, pulls the latest changes, and returns to the originally active branch, making it ideal for environments that require regular repository updates.
-
 
 Note: This plugin only performs synchronization. For tracking and other SCM functionalities, use Redmine's built-in Git SCM feature using output data.
 
 ![image](https://github.com/user-attachments/assets/5e23c90c-cd55-4a28-83a0-9061222225a2)
+
+
+## Git Repository Synchronization Script
+Using the Bash script located in the bash folder, you can automate the synchronization of all branches across multiple Git repositories with their remote sources. By setting up a cron job for this script, each repository will remain up-to-date automatically. The script switches to each branch, pulls the latest changes, and returns to the originally active branch, making it ideal for environments that require regular repository updates.
 
 
 ## Licence
