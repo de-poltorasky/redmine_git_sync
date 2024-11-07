@@ -4,7 +4,7 @@
 REPOS_DDIR="/XXXXX/"container_git_repositories"/
 REPOS_LDIR="/XXXXX/"Host_git_repositories"/
 # Define the name of the Redmine Docker container
-CONTAINER_NAME="redmine_app"
+CONTAINER_NAME="redmine_container_name"
 
 # Check if the container is running
 if ! docker ps | grep -q "$CONTAINER_NAME"; then
