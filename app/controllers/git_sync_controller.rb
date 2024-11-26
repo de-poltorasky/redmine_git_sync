@@ -1,10 +1,11 @@
 class GitSyncController < ApplicationController
   unloadable
   before_action :find_project, :authorize
+
+  def index
     project_base_dir = File.join(Rails.root, 'files', 'git_repositories', "*_#{@project.id}")
     @repositories = Dir.glob(project_base_dir).select { |f| File.directory?(f) }
-  def index
-    
+    #@repositories = Dir.glob(File.join(Rails.root, 'files', 'git_repositories', '*')).select { |f| File.directory? f }
   end
 
   def sync
